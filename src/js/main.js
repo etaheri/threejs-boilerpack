@@ -15,7 +15,3 @@ function init(){
 }
 
 window.onload = init;
-
-
-
-//app.animate();

@@ -14,9 +14,4 @@ export default class Camera {
     this.camera.aspect = this.container.offsetWidth / this.container.offsetHeight;
     this.camera.updateProjectionMatrix();
   }
-
-  // get camera() {
-  //   return this.camera;
-  // }
-
 }

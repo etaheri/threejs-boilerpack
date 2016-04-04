@@ -4,7 +4,7 @@ export default class Geometry {
 
     constructor() {
         var geometry = new THREE.BoxGeometry(1, 1, 1);
-        var material = new THREE.MeshBasicMaterial({color: 0x669955});
+        var material = new THREE.MeshLambertMaterial({color: 0x666666});
         this.mesh = new THREE.Mesh( geometry, material );
     }
 
@@ -13,8 +13,7 @@ export default class Geometry {
     }
 
     render() {
-        this.mesh.rotation.x += 0.01;
-        this.mesh.rotation.y += 0.01;
+        //update
     }
 
 }
