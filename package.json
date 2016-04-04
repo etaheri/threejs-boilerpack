@@ -4,50 +4,45 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev"                   : "npm run webpack-watch & parallelshell 'npm run dev:stylus' 'npm run livereload'",
-    "deploy"                : "bash ./scripts/deploy.sh",
-
-    "lint"                  : "eslint ./src/js/**/*.js; exit 0",
-    "server"                : "$(npm bin)/http-server build/public",
-    "webpack-watch"         : "ENV_PROD=0 webpack --progress --colors --watch --cache",
-    "livereload"            : "$(npm bin)/live-reload --port 9091 ./build/public/",
-    "sass-watch"            : "sass src/css/main.scss:build/public/assets/css/main.css --watch",
-
-    "dev:js"                : "ENV_PROD=0 webpack",
-    "dev:stylus"            : "npm run dev:stylus:global & parallelshell 'npm run dev:stylus:noscript'",
-    "dev:stylus:global"     : "$(npm bin)/stylus -u autoprefixer-stylus --sourcemap ./src/css/app.styl -o ./build/public/assets/css/app.css",
-    "dev:stylus:noscript"   : "$(npm bin)/stylus -u autoprefixer-stylus --sourcemap ./src/css/noscript.styl -o ./build/public/assets/css/noscript.css",
-
-    "deploy:sass"           : "sass src/css/main.scss:deploy/public/assets/css/main.css --style compressed",
-
-    "deploy:stylus"         : "npm run deploy:stylus:global && npm run deploy:stylus:noscript",
-    "deploy:stylus:global"  : "stylus -u autoprefixer-stylus ./src/css/app.styl -o ./deploy/public/assets/css/app.css -c",
+    "dev": "npm run webpack-watch & parallelshell 'npm run dev:stylus' 'npm run livereload'",
+    "deploy": "bash ./scripts/deploy.sh",
+    "lint": "eslint ./src/js/**/*.js; exit 0",
+    "server": "$(npm bin)/http-server build/public",
+    "webpack-watch": "ENV_PROD=0 webpack --progress --colors --watch --cache",
+    "livereload": "$(npm bin)/live-reload --port 9091 ./build/public/",
+    "sass-watch": "sass src/css/main.scss:build/public/assets/css/main.css --watch",
+    "dev:js": "ENV_PROD=0 webpack",
+    "dev:stylus": "npm run dev:stylus:global & parallelshell 'npm run dev:stylus:noscript'",
+    "dev:stylus:global": "$(npm bin)/stylus -u autoprefixer-stylus --sourcemap ./src/css/app.styl -o ./build/public/assets/css/app.css",
+    "dev:stylus:noscript": "$(npm bin)/stylus -u autoprefixer-stylus --sourcemap ./src/css/noscript.styl -o ./build/public/assets/css/noscript.css",
+    "deploy:sass": "sass src/css/main.scss:deploy/public/assets/css/main.css --style compressed",
+    "deploy:stylus": "npm run deploy:stylus:global && npm run deploy:stylus:noscript",
+    "deploy:stylus:global": "stylus -u autoprefixer-stylus ./src/css/app.styl -o ./deploy/public/assets/css/app.css -c",
     "deploy:stylus:noscript": "stylus -u autoprefixer-stylus ./src/css/noscript.styl -o ./deploy/public/assets/css/noscript.css -c",
-
-    "deploy:js"             : "ENV_PROD=1 webpack"
+    "deploy:js": "ENV_PROD=1 webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "live-reload": "latest",
+    "autoprefixer-stylus": "latest",
     "babel-core": "6.1.2",
     "babel-loader": "6.0.1",
     "babel-preset-es2015": "^6.1.2",
+    "cssmin": "latest",
     "file-loader": "0.8.5",
     "handlebars": "^4.0.3",
     "handlebars-loader": "^1.1.4",
-    "autoprefixer-stylus": "latest",
-    "stylus": "latest",
-    "cssmin": "latest",
     "http-server": "*",
     "imports-loader": "^0.6.5",
+    "live-reload": "latest",
+    "parallelshell": "latest",
+    "stylus": "latest",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.0.11",
-    "webpack-stream": "^2.1.1",
-    "parallelshell": "latest"
+    "webpack-stream": "^2.1.1"
   },
   "dependencies": {
-    "three-js": "^74.0.5"
+    "three": "^0.75.0"
   }
 }

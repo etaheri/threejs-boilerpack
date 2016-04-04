@@ -1,17 +1,22 @@
-import THREE from 'three-js';
+import THREE from 'three';
 
 export default class Camera {
-  constructor() {
-    this.camera = new THREE.PerspectiveCamera( 70, 1, 1, 5000 );
-    this.position.z = 400;
-    window.addEventListener( 'resize', this.updateSize, false );
+  constructor(container) {
+    this.container = container;
+    this.camera = new THREE.PerspectiveCamera();
+    this.camera.position.set(0, 0, 500)
+    this.camera.position.z = 5;
+    window.addEventListener( 'resize', this.updateSize.bind(this), false );
     this.updateSize();
   }
-  updateSize() {
-    camera.aspect = container.offsetWidth / container.offsetHeight;
-    camera.updateProjectionMatrix();
+
+  updateSize(container) {
+    this.camera.aspect = this.container.offsetWidth / this.container.offsetHeight;
+    this.camera.updateProjectionMatrix();
   }
-  get camera() {
-    return this.camera;
-  }
+
+  // get camera() {
+  //   return this.camera;
+  // }
+
 }
